@@ -1,8 +1,11 @@
 import os
 import google.generativeai as genai
+from dotenv import load_dotenv  # <--- Import this
 
-# Setup API Key
-os.environ["GEMINI_API_KEY"] = "AIzaSyBBUcBFEYKEG_4zzubpyQxCrlwRPkHJWtM" # Put your actual key here
+load_dotenv()  # <--- This reads the .env file
+api_key = os.getenv("GEMINI_API_KEY") # <--- Get the key safely
+
+os.environ["Gemini_API_Key"] = api_key
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 
 print("Checking available models...")
