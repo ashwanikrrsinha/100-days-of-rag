@@ -7,7 +7,8 @@ I am undertaking a challenge to build 100 RAG (Retrieval-Augmented Generation) p
 | :--- | :--- | :--- | :--- | :--- |
 | 01 | [The Naive RAG](./Day_01_Naive_RAG) | Python, Gemini | Prompt Engineering, Context Injection, Safety Filters | ✅ Done |
 | 02 | [Text File RAG](./Day_02_Text_File_RAG) | Python, Gemini | Data Ingestion, .env Security, File I/O | ✅ Done |
-| 03 | TBD | ... | ... | ⏳ |
+| 03 | [Embeddings Generator](./Day_03_Embeddings) | Python, Gemini | Vector Space, Embeddings, Dimensionality (768) | ✅ Done |
+| 04 | TBD | ... | ... | ⏳ |
 
 ---
 
@@ -44,3 +45,20 @@ I am undertaking a challenge to build 100 RAG (Retrieval-Augmented Generation) p
 
 **Architecture:**
 `[Text File]` --> `[Python Read Function]` --> `[RAG Prompt]` --> `[Gemini LLM]` --> `[Answer]`
+
+---
+
+### Day 3: Embeddings Generator (Text to Math)
+**Goal:** Create a script that converts human text into Vector Embeddings (lists of floating-point numbers) so computers can understand the "meaning" behind words.
+
+**Key Learnings:**
+1.  **Vector Space:** AI views text as coordinates in a multi-dimensional map.
+2.  **The Model:** Used `text-embedding-004` (optimized for math) instead of `gemini-2.0-flash` (optimized for chat).
+3.  **Dimensionality:** Discovered that Gemini converts every piece of text into exactly **768 numbers**.
+
+**Tech Stack:**
+* **Model:** `models/text-embedding-004`
+* **Function:** `genai.embed_content()`
+
+**Architecture:**
+`[Text Input]` --> `[Embedding Model]` --> `[Vector (List of 768 floats)]`
