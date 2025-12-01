@@ -8,7 +8,8 @@ I am undertaking a challenge to build 100 RAG (Retrieval-Augmented Generation) p
 | 01 | [The Naive RAG](./Day_01_Naive_RAG) | Python, Gemini | Prompt Engineering, Context Injection, Safety Filters | ✅ Done |
 | 02 | [Text File RAG](./Day_02_Text_File_RAG) | Python, Gemini | Data Ingestion, .env Security, File I/O | ✅ Done |
 | 03 | [Embeddings Generator](./Day_03_Embeddings) | Python, Gemini | Vector Space, Embeddings, Dimensionality (768) | ✅ Done |
-| 04 | TBD | ... | ... | ⏳ |
+| 04 | [Simple Vector Store](./Day_04_Vector_Store) | Python, Numpy | Cosine Similarity, Vector Search, Ranking | ✅ Done |
+| 05 | TBD | ... | ... | ⏳ |
 
 ---
 
@@ -62,3 +63,20 @@ I am undertaking a challenge to build 100 RAG (Retrieval-Augmented Generation) p
 
 **Architecture:**
 `[Text Input]` --> `[Embedding Model]` --> `[Vector (List of 768 floats)]`
+
+---
+
+### Day 4: The Vector Store (Semantic Search)
+**Goal:** Build a custom search engine from scratch that uses vector mathematics to find the most relevant information for a user's query.
+
+**Key Learnings:**
+1.  **Cosine Similarity:** Learned the math formula `(A . B) / (|A| * |B|)` to calculate the "angle" or similarity between two pieces of text.
+2.  **Vector Store:** Built a simple in-memory database (list of dictionaries) to store text alongside its embedding.
+3.  **Semantic Ranking:** The system correctly identified that "Currency" is related to "Buying", even without keyword matching.
+
+**Tech Stack:**
+* **Library:** `numpy` for dot products and linear algebra.
+* **Concept:** k-Nearest Neighbors (k-NN) search logic.
+
+**Architecture:**
+`[Query Vector]` vs `[All Document Vectors]` -> `[Calculate Scores]` -> `[Sort & Pick Top 1]`
