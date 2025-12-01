@@ -6,14 +6,14 @@ I am undertaking a challenge to build 100 RAG (Retrieval-Augmented Generation) p
 | Day | Project Name | Tech Stack | Key Concepts | Status |
 | :--- | :--- | :--- | :--- | :--- |
 | 01 | [The Naive RAG](./Day_01_Naive_RAG) | Python, Gemini | Prompt Engineering, Context Injection, Safety Filters | ✅ Done |
-| 02 | TBD | ... | ... | ⏳ |
+| 02 | [Text File RAG](./Day_02_Text_File_RAG) | Python, Gemini | Data Ingestion, .env Security, File I/O | ✅ Done |
+| 03 | TBD | ... | ... | ⏳ |
 
 ---
 
 ## 📂 Daily Log
 
 ### Day 1: The Naive RAG (Simple Context Injection)
-
 **Goal:** Build the simplest possible RAG system. Instead of using complex databases, we manually "inject" knowledge into the AI's prompt to force it to answer questions about data it has never seen before.
 
 **Key Learnings:**
@@ -26,4 +26,21 @@ I am undertaking a challenge to build 100 RAG (Retrieval-Augmented Generation) p
 * **Library:** `google-generativeai`
 
 **Architecture:**
-[Input Question] --> [Inject Hardcoded Context] --> [Gemini LLM] --> [Answer]
+`[Input Question]` --> `[Inject Hardcoded Context]` --> `[Gemini LLM]` --> `[Answer]`
+
+---
+
+### Day 2: Text File RAG (Dynamic Ingestion)
+**Goal:** Build a dynamic RAG system that reads from external files instead of hardcoded strings. This mimics real-world apps where data lives in documents, not code.
+
+**Key Learnings:**
+1.  **Dynamic Ingestion:** Wrote a Python function to open `.txt` files and load content into memory.
+2.  **Environment Security:** Implemented `python-dotenv` to load API keys from a `.env` file, keeping secrets out of GitHub.
+3.  **Scalability:** The same Python script can now handle any text topic just by swapping the `.txt` file (Separation of Data vs. Code).
+
+**Tech Stack:**
+* **Libraries:** `google-generativeai`, `python-dotenv`
+* **Data Source:** Local `.txt` file (`mars_colony_guide.txt`)
+
+**Architecture:**
+`[Text File]` --> `[Python Read Function]` --> `[RAG Prompt]` --> `[Gemini LLM]` --> `[Answer]`
