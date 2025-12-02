@@ -11,7 +11,8 @@ I am undertaking a challenge to build 100 RAG (Retrieval-Augmented Generation) p
 | 04 | [Simple Vector Store](./Day_04_Vector_Store) | Python, Numpy | Cosine Similarity, Vector Search, Ranking | ✅ Done |
 | 05 | [Chat with PDF](./Day_05_Chat_with_PDF) | Python, pypdf | Chunking, Overlap, Full RAG Pipeline | ✅ Done |
 | 06 | [ChromaDB Vector Store](./Day_06_ChromaDB) | Python, ChromaDB | Persistent Storage, Database, Upserting | ✅ Done |
-| 07 | TBD | ... | ... | ⏳ |
+| 07 | [LangChain Refactor](./Day_07_LangChain_Intro) | Python, LangChain | Frameworks, Document Loaders, Text Splitters | ✅ Done |
+| 08 | TBD | ... | ... | ⏳ |
 
 ---
 
@@ -116,3 +117,20 @@ I am undertaking a challenge to build 100 RAG (Retrieval-Augmented Generation) p
 
 **Architecture:**
 `[Documents]` -> `[Embedding]` -> `[ChromaDB (Disk)]` <-> `[Query]`
+
+---
+
+### Day 7: LangChain Intro (The Modern Stack)
+**Goal:** Refactor the manual RAG pipeline from Day 5 using the **LangChain** framework to reduce code complexity and use industry-standard tools.
+
+**Key Learnings:**
+1.  **LangChain Abstractions:** Learned how `PyPDFLoader` and `RecursiveCharacterTextSplitter` handle data ingestion much better than manual scripts.
+2.  **Vector Store Integration:** Used `Chroma.from_documents` to handle embedding and storage in a single line of code.
+3.  **Component Chaining:** Connected the Retriever to the LLM manually (conceptually preparing for "Chains").
+
+**Tech Stack:**
+* **Framework:** `LangChain`
+* **Connectors:** `langchain-google-genai`, `langchain-chroma`
+
+**Architecture:**
+`[PDF]` -> `[PyPDFLoader]` -> `[TextSplitter]` -> `[ChromaDB]` -> `[Retriever]` -> `[LLM]`
