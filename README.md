@@ -10,7 +10,8 @@ I am undertaking a challenge to build 100 RAG (Retrieval-Augmented Generation) p
 | 03 | [Embeddings Generator](./Day_03_Embeddings) | Python, Gemini | Vector Space, Embeddings, Dimensionality (768) | ✅ Done |
 | 04 | [Simple Vector Store](./Day_04_Vector_Store) | Python, Numpy | Cosine Similarity, Vector Search, Ranking | ✅ Done |
 | 05 | [Chat with PDF](./Day_05_Chat_with_PDF) | Python, pypdf | Chunking, Overlap, Full RAG Pipeline | ✅ Done |
-| 06 | TBD | ... | ... | ⏳ |
+| 06 | [ChromaDB Vector Store](./Day_06_ChromaDB) | Python, ChromaDB | Persistent Storage, Database, Upserting | ✅ Done |
+| 07 | TBD | ... | ... | ⏳ |
 
 ---
 
@@ -98,3 +99,20 @@ I am undertaking a challenge to build 100 RAG (Retrieval-Augmented Generation) p
 
 **Architecture:**
 `[PDF]` -> `[Chunks]` -> `[Vector Search]` -> `[Relevant Chunk]` -> `[LLM Answer]`
+
+---
+
+### Day 6: ChromaDB Vector Store (Persistent Memory)
+**Goal:** Upgrade the storage backend from a temporary Python list to a dedicated Vector Database (ChromaDB) to enable long-term memory and efficient querying.
+
+**Key Learnings:**
+1.  **Persistence:** Created a database that saves data to the local disk (`./chroma_db`), allowing the app to remember information across restarts.
+2.  **Efficiency:** Learned that Vector DBs eliminate the need to pay for re-embedding the same data repeatedly (Upsert logic).
+3.  **ChromaDB API:** Mastered the basics of creating collections, adding documents, and querying nearest neighbors without manual math.
+
+**Tech Stack:**
+* **Database:** `chromadb`
+* **Model:** `models/text-embedding-004`
+
+**Architecture:**
+`[Documents]` -> `[Embedding]` -> `[ChromaDB (Disk)]` <-> `[Query]`
