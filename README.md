@@ -9,7 +9,8 @@ I am undertaking a challenge to build 100 RAG (Retrieval-Augmented Generation) p
 | 02 | [Text File RAG](./Day_02_Text_File_RAG) | Python, Gemini | Data Ingestion, .env Security, File I/O | ✅ Done |
 | 03 | [Embeddings Generator](./Day_03_Embeddings) | Python, Gemini | Vector Space, Embeddings, Dimensionality (768) | ✅ Done |
 | 04 | [Simple Vector Store](./Day_04_Vector_Store) | Python, Numpy | Cosine Similarity, Vector Search, Ranking | ✅ Done |
-| 05 | TBD | ... | ... | ⏳ |
+| 05 | [Chat with PDF](./Day_05_Chat_with_PDF) | Python, pypdf | Chunking, Overlap, Full RAG Pipeline | ✅ Done |
+| 06 | TBD | ... | ... | ⏳ |
 
 ---
 
@@ -80,3 +81,20 @@ I am undertaking a challenge to build 100 RAG (Retrieval-Augmented Generation) p
 
 **Architecture:**
 `[Query Vector]` vs `[All Document Vectors]` -> `[Calculate Scores]` -> `[Sort & Pick Top 1]`
+
+---
+
+### Day 5: Chat with PDF (The Full Pipeline)
+**Goal:** Combine all previous concepts to build a functioning app that reads a PDF and answers questions about it using Vector Search.
+
+**Key Learnings:**
+1.  **Chunking Strategy:** Learned to split large documents into smaller pieces (1000 chars) using a "Sliding Window" with overlap to preserve context.
+2.  **PDF Parsing:** Used `pypdf` to extract raw text from binary files.
+3.  **Pipeline Integration:** Successfully connected Ingestion -> Chunking -> Embedding -> Search -> Generation into a single workflow.
+
+**Tech Stack:**
+* **Libraries:** `pypdf`, `numpy`, `google-generativeai`
+* **Algorithm:** Sliding Window Chunking + Cosine Similarity Search.
+
+**Architecture:**
+`[PDF]` -> `[Chunks]` -> `[Vector Search]` -> `[Relevant Chunk]` -> `[LLM Answer]`
