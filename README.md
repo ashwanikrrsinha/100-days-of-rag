@@ -13,7 +13,8 @@ I am undertaking a challenge to build 100 RAG (Retrieval-Augmented Generation) p
 | 06 | [ChromaDB Vector Store](./Day_06_ChromaDB) | Python, ChromaDB | Persistent Storage, Database, Upserting | ✅ Done |
 | 07 | [LangChain Refactor](./Day_07_LangChain_Intro) | Python, LangChain | Frameworks, Document Loaders, Text Splitters | ✅ Done |
 | 08 | [Streamlit Frontend](./Day_08_Streamlit_Frontend) | Python, Streamlit | UI/UX, Session State, File Uploads | ✅ Done |
-| 09 | TBD | ... | ... | ⏳ |
+| 09 | [Context-Aware Chatbot](./Day_09_Chat_History) | Python, Streamlit | Chat History, Query Reformulation, LangChain Chains | ✅ Done |
+| 10 | TBD | ... | ... | ⏳ |
 
 ---
 
@@ -152,3 +153,20 @@ I am undertaking a challenge to build 100 RAG (Retrieval-Augmented Generation) p
 
 **Architecture:**
 `[User UI]` <-> `[Session State (Memory)]` <-> `[ChromaDB]` -> `[LangChain Retrieval]` -> `[Gemini Answer]`
+
+---
+
+### Day 9: Context-Aware Chatbot (Adding Memory)
+**Goal:** Upgrade the RAG system to handle follow-up questions by implementing "Conversational Memory."
+
+**Key Learnings:**
+1.  **The Amnesia Problem:** Vector Search fails on pronouns ("he", "it") because it lacks context.
+2.  **Query Reformulation:** Implemented a "Rewriter" step using `create_history_aware_retriever` that converts follow-up questions into standalone search queries.
+3.  **LangChain Chains:** Composed multiple chains (History Chain + Document Chain) into a single `create_retrieval_chain` workflow.
+
+**Tech Stack:**
+* **Chains:** `create_history_aware_retriever`, `create_retrieval_chain`
+* **Prompting:** `ChatPromptTemplate`, `MessagesPlaceholder`
+
+**Architecture:**
+`[Query + History]` -> `[Rewriter LLM]` -> `[Standalone Query]` -> `[Vector Store]` -> `[Answer LLM]`
