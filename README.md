@@ -12,7 +12,8 @@ I am undertaking a challenge to build 100 RAG (Retrieval-Augmented Generation) p
 | 05 | [Chat with PDF](./Day_05_Chat_with_PDF) | Python, pypdf | Chunking, Overlap, Full RAG Pipeline | ✅ Done |
 | 06 | [ChromaDB Vector Store](./Day_06_ChromaDB) | Python, ChromaDB | Persistent Storage, Database, Upserting | ✅ Done |
 | 07 | [LangChain Refactor](./Day_07_LangChain_Intro) | Python, LangChain | Frameworks, Document Loaders, Text Splitters | ✅ Done |
-| 08 | TBD | ... | ... | ⏳ |
+| 08 | [Streamlit Frontend](./Day_08_Streamlit_Frontend) | Python, Streamlit | UI/UX, Session State, File Uploads | ✅ Done |
+| 09 | TBD | ... | ... | ⏳ |
 
 ---
 
@@ -134,3 +135,20 @@ I am undertaking a challenge to build 100 RAG (Retrieval-Augmented Generation) p
 
 **Architecture:**
 `[PDF]` -> `[PyPDFLoader]` -> `[TextSplitter]` -> `[ChromaDB]` -> `[Retriever]` -> `[LLM]`
+
+---
+
+### Day 8: Streamlit Frontend (The Web App)
+**Goal:** Build a browser-based user interface so users can interact with the RAG system without touching the terminal.
+
+**Key Learnings:**
+1.  **Streamlit Basics:** Built a Sidebar for inputs and a Main Area for chat.
+2.  **Session State:** Learned how to persist variables (like the Vector Database and Chat History) across app re-runs.
+3.  **UI Feedback:** Added spinners (`st.spinner`) and success messages to improve user experience during the slow PDF processing step.
+
+**Tech Stack:**
+* **UI Library:** `streamlit`
+* **Command:** `streamlit run app.py`
+
+**Architecture:**
+`[User UI]` <-> `[Session State (Memory)]` <-> `[ChromaDB]` -> `[LangChain Retrieval]` -> `[Gemini Answer]`
